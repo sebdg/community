@@ -13,16 +13,16 @@
 
 from lib.cuckoo.common.abstracts import Signature
 
-class AntiVMMounts(Signature):
-    name = "antivm_generic_mounts"
-    description = "Checks the Mount points from procfs, possibly for anti-virtualization"
+class AntiVMMemory(Signature):
+    name = "antivm_generic_cpu"
+    description = "Checks the cpu information from procfs, possibly for anti-virtualization"
     severity = 3
     categories = ["anti-vm"]
     authors = ["sebdg"]
     minimum = "2.0"
 
     file_indicators = [
-        "/proc/mounts",
+        "/proc/meminfo",
     ]
 
     def on_complete(self):

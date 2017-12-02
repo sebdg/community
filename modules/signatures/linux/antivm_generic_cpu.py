@@ -15,14 +15,14 @@ from lib.cuckoo.common.abstracts import Signature
 
 class AntiVMCPU(Signature):
     name = "antivm_generic_cpu"
-    description = "Checks the Memory information from procfs, possibly for anti-virtualization"
+    description = "Checks the cpu information, possibly for anti-virtualization"
     severity = 3
     categories = ["anti-vm"]
-    authors = ["Sebdg"]
+    authors = ["sebdg"]
     minimum = "2.0"
 
     file_indicators = [
-        "/proc/meminfo",
+        "/proc/cpuinfo",
     ]
 
     def on_complete(self):
